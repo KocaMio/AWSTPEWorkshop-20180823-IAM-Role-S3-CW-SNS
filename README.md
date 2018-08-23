@@ -1,4 +1,4 @@
-Startup Workshop Series (2018-08-23) Build On AWS
+Startup Workshop Series (2018-08-23) IAM-Role-S3-CW-SNS
 ======
 ### Repo: [https://github.com/juntinyeh/AWSWorkshop-20180823-IAM-Role-S3-CW-SNS]
 
