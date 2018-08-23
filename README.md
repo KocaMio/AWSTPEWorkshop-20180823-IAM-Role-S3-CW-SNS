@@ -2,19 +2,10 @@ Startup Workshop Series (2018-08-23) IAM-Role-S3-CW-SNS
 ======
 ### Repo: [https://github.com/juntinyeh/AWSWorkshop-20180823-IAM-Role-S3-CW-SNS]
 
-Today we are going to practice a full end to end scenario, create VPC with different network topology, include public subnet and private subnet. And we will create bastion machine, Application Load Balancer with Web server, a backend machine inside the private subnet, a RDS server and also a S3 bucket.
+Today we mainly will talked about the IAM related concept. We will talk about the user, role, policy, which is most fundamental part before we start to build any workload on AWS.
 
-Looks complicated, but it is designed to be a very wide usage sample for most general scenario.
+We will introduce the IAM users, how to create policy and make sure the lease privilege you grant to your team crew. And we will show you what's the different way to get your 
 
-![AWS Workshop Series - VPCEC2S3RDS](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180731-VPC-EC2-S3-RDS/master/images/vpcec2s3rds.png)
-
-For this workshop, we support 3 different region: 
-* N. Viginia(us-east-1)
-* N. California(us-west-1)
-* Tokyo(ap-northeast-1)
-* Sydney(ap-southeast-2) 
-* Frankfurt(eu-central-1)
-* London(eu-west-2)
 
 We pick these region becase later we will deploy the whole stack, with correct AMI support.
 ------
@@ -48,7 +39,7 @@ For more detail, please check the document (https://aws.amazon.com/iam/details/m
 
 * If you are windows user, and you should download putty.exe and puttygen.exe from [Here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). And also check the document [Here](https://www.ssh.com/ssh/putty/windows/puttygen) if you don't know how to convert .pem to .ppk
 
-### Step 5:
+### Step 5 (optional):
 * Create cloudformation stack: **AWS Console > Cloudformation > Create Stack > from S3 template >
 https://s3-ap-northeast-1.amazonaws.com/workshop-data-public/cloudformation-workshop-20180731-vpc-bastion-rds.cfn.yml**
 - All the step will be the same with our pervious workshop (https://github.com/juntinyeh/AWSWorkshop-20180731-VPC-EC2-S3-RDS)
@@ -62,9 +53,9 @@ https://s3-ap-northeast-1.amazonaws.com/workshop-data-public/cloudformation-work
 * Now find the bucket policy file in (AWSWorkshop-20180823-IAM-Role-S3-CW-SNS/policies/bucket-policy.json)
 - Copy it, and paste to your S3 bucket policy: **AWS Console > S3 > `YOURBUCKET` > Permission > bucket policy**
 - ~Paste it and save~. `(You have to change the aws-user-id from 1111111111 to your own id.)`
-* Now compare with different access method, try to use `awscli` from bastion, on your laptop.
+* Now compare with different access method, try to use `awscli` from bastion, on your laptop (if you skip step5). 
 - Try to access the bucket, with and without MFA.
-- The command with MFA delete will like 
+- The command with MFA delete will like this:
 `aws s3api delete-object --bucket nctu-aws-workshop --key test.py --mfa "arn:aws:iam::111111111111:mfa/$YOURUSER 123456"`
 
 ![AWS Workshop Series - BUCKETPOLICYROLEMFA](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180823-IAM-Role-S3-CW-SNS/master/images/s3-bucket-policy-role-mfa.png)
