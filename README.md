@@ -84,9 +84,11 @@ https://s3-ap-northeast-1.amazonaws.com/workshop-data-public/cloudformation-work
 - And **Add Target**, pick `SNS topic`, and make sure you send it to the right topic.
 - After you give it a name, it's done now.
 * Now, try to put some file into your bucket, modify and delete, you will get email notification.
+
 ![AWS Workshop Series - S3OBJCTCWSNS](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180823-IAM-Role-S3-CW-SNS/master/images/s3-obj-ct-cw-sns-email.png)
 
-s3-obj-ct-cw-sns-email
+For the whole notification flow will look like this, S3 bucket will send the log to CloudTrail, and trigger the event to target SNS. If you have more subscriber in the SNS topic, all of them will get notified.
+
 ## After Workshop
 1. Go to Cloudformation, select your stack and delete stack.
 2. Remember to delete all the stack above with reversed sequence. (step 7 > step 5)
