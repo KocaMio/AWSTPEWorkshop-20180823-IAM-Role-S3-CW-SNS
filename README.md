@@ -61,7 +61,7 @@ https://s3-ap-northeast-1.amazonaws.com/workshop-data-public/cloudformation-work
 ### Step 6:
 * Now find the bucket policy file in (AWSWorkshop-20180823-IAM-Role-S3-CW-SNS/policies/bucket-policy.json)
 - Copy it, and paste to your S3 bucket policy: **AWS Console > S3 > `YOURBUCKET` > Permission > bucket policy**
-- Paste it and save. 
+- ~Paste it and save~. `(You have to change the aws-user-id from 1111111111 to your own id.)`
 * Now compare with different access method, try to use `awscli` from bastion, on your laptop.
 - Try to access the bucket, with and without MFA.
 - The command with MFA delete will like 
